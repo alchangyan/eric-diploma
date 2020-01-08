@@ -5,6 +5,7 @@ import Content from '../../../../components/Content';
 import Footer from '../../../../components/Footer';
 import Tool from '../../../../components/Tool';
 import './Interface.scss';
+import Tabs from '../../../../components/Tabs';
 
 const {
   ToolBarRight,
@@ -53,6 +54,20 @@ export const Interface: React.SFC = () => {
           <div style={divStyles}>English</div>
         </Footer>
       </EditorLayout>
+
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <Tabs>
+        <Tabs.Tab tab="Tab 1">
+          <div>Tab 1</div>
+        </Tabs.Tab>
+        <Tabs.Tab tab="Tab 2">
+          <div>Tab 2</div>
+        </Tabs.Tab>
+      </Tabs>
     </div>
   );
 }

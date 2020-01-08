@@ -7,17 +7,33 @@ export type TabsProps = {
 };
 
 export const Tabs = ({children}: TabsProps) => {
+  const [active, setActive] = React.useState(0);
   const childrenArray = children instanceof Array ? children : [children];
   const tabData = React.useCallback(() => childrenArray.map((child) => {
     const { props } = child;
     return props.tab;
   }), [childrenArray])();
 
-  console.log(tabData)
+  const handleClick = (e:React.MouseEvent) => {
+    const tab = e.target as HTMLDivElement;
+    const key = tab.getAttribute('data-index');
+    setActive(Number(key));
+  }
 
   return (
     <div className="Tabs">
-      {childrenArray}
+      <div className="tab-panel">
+        {tabData.map((tabData, index) => (
+          <div
+            key={index}
+            data-index={index}
+            onClick={handleClick}
+          >
+            {tabData}
+          </div>
+        ))}
+      </div>
+      {childrenArray[active]}
     </div>
   );
 };
