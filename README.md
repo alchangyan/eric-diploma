@@ -1,1 +1,1 @@
-# Eric Dimplma Project
+# Eric Diploma Project
